@@ -6,29 +6,11 @@ using UnityEngine.Networking;
 
 public class Web : MonoBehaviour
 {
-    // Reading from firebase/sql server / whatever we figure out goes here
+    // Currently unused, might be a good idea to put the code for reading/writing to the database here instead of in the main script file
     void Start()
     {
-        StartCoroutine(Upload());
+
     }
 
-    IEnumerator Upload()
-    {
-        WWWForm form = new WWWForm();
-        form.AddField("myField", "myData");
 
-        using (UnityWebRequest www = UnityWebRequest.Post("http://www.my-server.com/myform", form))
-        {
-            yield return www.SendWebRequest();
-
-            if (www.isNetworkError || www.isHttpError)
-            {
-                Debug.Log(www.error);
-            }
-            else
-            {
-                Debug.Log("Form upload complete!");
-            }
-        }
-    }
 }
