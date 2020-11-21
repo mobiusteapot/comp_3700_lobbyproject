@@ -2,6 +2,9 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Net;
+using System.Net.NetworkInformation;
+using System.Net.Sockets;
 
 namespace Lobby
 {
@@ -12,6 +15,7 @@ namespace Lobby
         [SerializeField] private TMP_Text[] playerNameTexts = new TMP_Text[4];
         [SerializeField] private TMP_Text[] playerReadyTexts = new TMP_Text[4];
         [SerializeField] private Button startGameButton = null;
+        [SerializeField] private TMP_Text IP_Text = null;
 
         [SyncVar(hook = nameof(HandleDisplayNameChanged))]
         public string DisplayName = "Loading...";
@@ -25,6 +29,9 @@ namespace Lobby
             {
                 isLeader = value;
                 startGameButton.gameObject.SetActive(value);
+
+                // Display host IP address
+                IP_Text.text = "IP: " + GetIP(ADDRESSFAM.IPv4);
             }
         }
 
@@ -121,5 +128,53 @@ namespace Lobby
 
             Room.StartGame();
         }
+        public static string GetIP(ADDRESSFAM Addfam)
+        {
+            //Return null if ADDRESSFAM is Ipv6 but Os does not support it
+            if (Addfam == ADDRESSFAM.IPv6 && !Socket.OSSupportsIPv6)
+            {
+                return null;
+            }
+
+            string output = "";
+
+            foreach (NetworkInterface item in NetworkInterface.GetAllNetworkInterfaces())
+            {
+#if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
+                NetworkInterfaceType _type1 = NetworkInterfaceType.Wireless80211;
+                NetworkInterfaceType _type2 = NetworkInterfaceType.Ethernet;
+
+                if ((item.NetworkInterfaceType == _type1 || item.NetworkInterfaceType == _type2) && item.OperationalStatus == OperationalStatus.Up)
+#endif
+                {
+                    foreach (UnicastIPAddressInformation ip in item.GetIPProperties().UnicastAddresses)
+                    {
+                        //IPv4
+                        if (Addfam == ADDRESSFAM.IPv4)
+                        {
+                            if (ip.Address.AddressFamily == AddressFamily.InterNetwork)
+                            {
+                                output = ip.Address.ToString();
+                            }
+                        }
+
+                        //IPv6
+                        else if (Addfam == ADDRESSFAM.IPv6)
+                        {
+                            if (ip.Address.AddressFamily == AddressFamily.InterNetworkV6)
+                            {
+                                output = ip.Address.ToString();
+                            }
+                        }
+                    }
+                }
+            }
+            return output;
+        }
+    }
+
+    public enum ADDRESSFAM
+    {
+        IPv4, IPv6
     }
 }

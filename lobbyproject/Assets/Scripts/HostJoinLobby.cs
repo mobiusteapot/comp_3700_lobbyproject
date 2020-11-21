@@ -10,12 +10,12 @@ namespace Lobby
         [SerializeField] private NetworkManagerLobby networkManager = null;
         [SerializeField] private GameObject landingPagePanel = null;
 
-    void Start()
-    {
-        // Listens for host lobby button press
-        Button hostbtn = hostLobbyButton.GetComponent<Button>();
-        hostbtn.onClick.AddListener(HostLobby);
-    }
+        void Start()
+        {
+            // Listens for host lobby button press
+            Button hostbtn = hostLobbyButton.GetComponent<Button>();
+            hostbtn.onClick.AddListener(HostLobby);
+        }
 
         public void HostLobby()
         {
