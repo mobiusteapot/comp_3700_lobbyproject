@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 618cc1386d4cd9544b4a04f1d686fa8f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - UsernameInput: {fileID: 7008757644243674102, guid: 8dc72a14932cabc43aa6dc598d192a84, type: 3}
+  - PasswordInput: {fileID: 2225752614931486921, guid: 53ca3f8a4eb64384ca384e75fb80ff7a, type: 3}
+  - LoginButton: {fileID: 1790608293559247555, guid: e4d3dd8dfca0f9e4796329f1cbfcf681, type: 3}
+  - CreateAccButton: {fileID: 7678378882361740875, guid: a3078a8b7363eb246a4e66bfe89f7d5e, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
