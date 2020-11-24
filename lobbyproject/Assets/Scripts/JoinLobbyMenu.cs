@@ -16,6 +16,7 @@ namespace Lobby
 
         [SerializeField] private GameObject landingPagePanel = null;
 
+        [SerializeField] RectTransform ErrorText;
         void Start()
         {
             // Listens for Join Lobby button press
@@ -41,12 +42,22 @@ namespace Lobby
 
         public void JoinLobby()
         {
-            string ipAddress = ipInput.text;
+            if (string.Compare(ipInput.text, "")== 1)
+            {
+                string ipAddress = ipInput.text;
+                Debug.Log("IP Input is " + ipAddress);
+                networkManager.networkAddress = ipAddress;
+                networkManager.StartClient();
 
-            networkManager.networkAddress = ipAddress;
-            networkManager.StartClient();
+                joinIPButton.interactable = false;
+            }
+            else
+            {
+                // show error text
 
-            joinIPButton.interactable = false;
+                ErrorText.GetComponent<CanvasGroup>().alpha = 1;
+            }
+
         }
 
         private void HandleClientConnected()

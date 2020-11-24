@@ -28,6 +28,7 @@ public class Login : MonoBehaviour
 
     public void SendLoginInfo()
     {
+        var friendsList = GameObject.Find("Friends List").GetComponent<CanvasGroup>();
         // Currently saves input data to player preference. To get player preference (for setup with a database or any other use), use "PlayerPrefs.GetString("String")
         // This method means the player data is saved with the application cookies for easy access, and the player's last username or password is remembered by default
         if ((UsernameInput == null )) {
@@ -41,8 +42,14 @@ public class Login : MonoBehaviour
         //logic to validate the login (from database?), currently if (true) as a placeholder
         if (true) {
             //user logged in, disable the login panel to reveal the host/join lobby panel
-            landingPagePanel.SetActive(false);  
-		}
+            landingPagePanel.SetActive(false);
+
+            // Show user friends
+
+
+            friendsList.alpha = 1;
+
+        }
     }
 
     public void SendCreateAccountInfo()

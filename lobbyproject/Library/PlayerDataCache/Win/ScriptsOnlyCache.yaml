@@ -1,6 +1,8 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - FriendsListPopulate
+    - ListItem
     - Lobby.HostJoinLobby
     - Lobby.JoinLobbyMenu
     - Lobby.NetworkManagerLobby
@@ -27,11 +29,16 @@ ScriptsOnlyBuild:
     - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
+    - UnityEngine.UI.ContentSizeFitter
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
     - UnityEngine.UI.LayoutElement
+    - UnityEngine.UI.Mask
     - UnityEngine.UI.RawImage
     - UnityEngine.UI.RectMask2D
+    - UnityEngine.UI.ScrollRect
+    - UnityEngine.UI.Scrollbar
+    - UnityEngine.UI.VerticalLayoutGroup
   sceneClasses:
     Assets/Scenes/SampleScene.unity:
     - Class: 1
@@ -59,9 +66,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11766}
     - Class: 114
+      Script: {instanceID: 12002}
+    - Class: 114
       Script: {instanceID: 12042}
     - Class: 114
       Script: {instanceID: 12068}
+    - Class: 114
+      Script: {instanceID: 12172}
     - Class: 114
       Script: {instanceID: 12204}
     - Class: 114
@@ -69,11 +80,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12320}
     - Class: 114
+      Script: {instanceID: 12444}
+    - Class: 114
       Script: {instanceID: 12570}
     - Class: 114
       Script: {instanceID: 12606}
     - Class: 114
+      Script: {instanceID: 12836}
+    - Class: 114
       Script: {instanceID: 13150}
+    - Class: 114
+      Script: {instanceID: 13254}
     - Class: 114
       Script: {instanceID: 13322}
     - Class: 114
@@ -99,9 +116,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14364}
     - Class: 114
-      Script: {instanceID: 14862}
+      Script: {instanceID: 14934}
     - Class: 114
-      Script: {instanceID: 14864}
+      Script: {instanceID: 14936}
+    - Class: 114
+      Script: {instanceID: 17862}
+    - Class: 114
+      Script: {instanceID: 18328}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -117,6 +138,8 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    - Class: 225
       Script: {instanceID: 0}
     - Class: 850595691
       Script: {instanceID: 0}
@@ -909,7 +932,7 @@ ScriptsOnlyBuild:
     className: MultiSceneNetManager
   - hash:
       serializedVersion: 2
-      Hash: b60777db4bcc3ef087fac4ccc4295677
+      Hash: feefe8f4af0e3827f9b65dffd8b12481
     assemblyName: Assembly-CSharp.dll
     namespaceName: Lobby
     className: JoinLobbyMenu
@@ -957,7 +980,7 @@ ScriptsOnlyBuild:
     className: NetworkTransformChild
   - hash:
       serializedVersion: 2
-      Hash: afa9c3bc617dd147abccc3df6d4bf2bd
+      Hash: d35893e82c8bf420c8118510ba5e2d09
     assemblyName: Assembly-CSharp.dll
     namespaceName: Lobby
     className: NetworkRoomPlayerLobby
@@ -1075,7 +1098,19 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.dll
     namespaceName: kcp2k
     className: KcpTransport
+  - hash:
+      serializedVersion: 2
+      Hash: 7d106c41dec5fb6b1190e109d16de8ae
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ListItem
+  - hash:
+      serializedVersion: 2
+      Hash: df70647d6b9978b972f13ff8596615fa
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FriendsListPopulate
   platform: 5
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: D:/ez900/Documents/Unity Projects/comp_3700_lobbyproject/lobbyproject/Build/lobbyproject.exe
+  playerPath: C:/Users/ez900/Documents/GitHub/comp_3700_lobbyproject/lobbyproject/Build/lobbyproject.exe
